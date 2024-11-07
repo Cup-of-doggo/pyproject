@@ -38,9 +38,19 @@ def filter_by_state(dict_list, state ='EXECUTED') -> list[any]:
     return new_dict_list
 
 
+def sort_by_date(new_dict_list, sort_order = True) -> list[any]:
+    if sort_order == True:
+        sorted_list = sorted(new_dict_list, key = lambda p: p['date'], reverse = True)
+    else:
+        sorted_list = sorted(new_dict_list, key = lambda p: p['date'], reverse = False)
+    return sorted_list
+
+
+
 print(get_mask_card_number('Visa Gold 5999414228426353'))
 print(get_mask_account('Счет 64686473678894779589'))
 print(mask_account_card('Visa Gold 5999414228426353'))
 print(mask_account_card('Счет 64686473678894779589'))
 print(get_date('2024-03-11T02:26:18.671407'))
 print(filter_by_state([{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'}, {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'}, {'id': 594226727, 'state': 'CANCELED', 'date': '2018-09-12T21:27:25.241689'}, {'id': 615064591, 'state': 'CANCELED', 'date': '2018-10-14T08:21:33.419441'}], state = 'CANCELED'))
+print(sort_by_date([{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'}, {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'}, {'id': 594226727, 'state': 'CANCELED', 'date': '2018-09-12T21:27:25.241689'}, {'id': 615064591, 'state': 'CANCELED', 'date': '2018-10-14T08:21:33.419441'}], sort_order = False))
