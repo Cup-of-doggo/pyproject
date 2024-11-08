@@ -30,7 +30,7 @@ def get_date(date: str) -> str:
      return f'{date[8:10]}.{date[5:7]}.{date[0:4]}'
 
 
-def filter_by_state(dict_list, state ='EXECUTED') -> list[any]:
+def filter_by_state(dict_list, state='EXECUTED')->list[:]:
     """Функция принимает список словарей, фильтрует по ключевому слову и возвращает новый список"""
     new_dict_list = []
     for string in dict_list:
@@ -38,12 +38,13 @@ def filter_by_state(dict_list, state ='EXECUTED') -> list[any]:
             new_dict_list.append(string)
     return new_dict_list
 
-def sort_by_date(new_dict_list, sort_order = True) -> list[any]:
+
+def sort_by_date(new_dict_list, sort_order=True)->list[:]:
     """Функция принимает список словарей и сортирует его(по умолчанию по убыванию) """
-    if sort_order == True:
-        sorted_list = sorted(new_dict_list, key = lambda index: index['date'], reverse = True)
+    if sort_order is True:
+        sorted_list = sorted(new_dict_list, key=lambda index: index['date'], reverse=True)
     else:
-        sorted_list = sorted(new_dict_list, key = lambda index: index['date'], reverse = False)
+        sorted_list = sorted(new_dict_list, key=lambda index: index['date'], reverse=False)
     return sorted_list
 
 
@@ -53,5 +54,5 @@ print(get_mask_account('Счет 64686473678894779589'))
 print(mask_account_card('Visa Gold 5999414228426353'))
 print(mask_account_card('Счет 64686473678894779589'))
 print(get_date('2024-03-11T02:26:18.671407'))
-print(filter_by_state([{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'}, {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'}], state = 'CANCELED'))
+print(filter_by_state([{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'}, {'id': 615064591, 'state': 'CANCELED', 'date': '2018-10-14T08:21:33.419441'}], state = 'CANCELED'))
 print(sort_by_date([{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'},  {'id': 615064591, 'state': 'CANCELED', 'date': '2018-10-14T08:21:33.419441'}], sort_order = False))
