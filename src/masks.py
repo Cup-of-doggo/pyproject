@@ -11,6 +11,7 @@ def get_mask_card_number(card_number: str) -> str:
     if 'Visa Gold' in card_number:
         return f"{card_number[:14]} {card_number[14:16]}** **** {card_number[22:]}"
 
+
 def get_mask_account(card_account: str) -> str:
     """Функция принимает номер счета и выдает его маску"""
     return f"{card_account[0:4]} **{card_account[-4:]}"
