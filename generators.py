@@ -3,7 +3,7 @@ def filter_by_currency(transactions: list[dict], currency: str ) -> list[dict]:
     for i in transactions:
         if i["operationAmount"]["currency"]["code"] == currency:
             filtered_result.append(i)
-    return filtered_result
+    yield filtered_result
 
 
 def transaction_descriptions(transactions:list[dict]) ->str:

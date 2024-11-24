@@ -48,7 +48,7 @@ def test_sort(test_sort_card):
 ], sort_order=False) == test_sort_card
 
 def test_filter_by_currency(test_filter_by_currency_list):
-    assert filter_by_currency ([
+    assert list(filter_by_currency ([
         {
             "id": 939719570,
             "state": "EXECUTED",
@@ -124,7 +124,7 @@ def test_filter_by_currency(test_filter_by_currency_list):
             "from": "Visa Platinum 1246377376343588",
             "to": "Счет 14211924144426031657"
         }
-    ], 'USD') == test_filter_by_currency_list
+    ], 'USD')) == [test_filter_by_currency_list]
 
 
 def test_transaction_descriptions():
