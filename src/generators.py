@@ -1,12 +1,12 @@
-def filter_by_currency(transactions: list[dict], currency: str ) -> list[dict]:
-    filtered_result = []
-    for i in transactions:
-        if i["operationAmount"]["currency"]["code"] == currency:
-            filtered_result.append(i)
-    yield filtered_result
+def filter_by_currency(transactions: list[dict], currency: str) -> list[dict]:
+    """ Фильтрует список транзакций по заданной валюте. """
+    for transaction in transactions:
+       if transaction["operationAmount"]["currency"]["code"] == currency:
+            yield transaction
 
 
 def transaction_descriptions(transactions:list[dict]) ->str:
+    """ Возвращает выполненные операции """
     try:
         for i in transactions:
             yield i["description"]
@@ -15,6 +15,7 @@ def transaction_descriptions(transactions:list[dict]) ->str:
 
 
 def card_number_generator(a:int, b:int)-> str:
+    """ Создает случайный номер для карты в заданном диапазоне """
     for number in range(a, b):
         card_number = str(number)
         while len(card_number) < 16:
